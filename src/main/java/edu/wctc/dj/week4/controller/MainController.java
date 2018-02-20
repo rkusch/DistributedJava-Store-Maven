@@ -60,7 +60,13 @@ public class MainController extends HttpServlet {
             throws ServletException, IOException {
             String macFolder = "/Users/ryan/OneDrive WCTC/OneDrive - Waukesha County Technical College/Distributed Java/NamesApp4 -Store/src/main/webapp";
         String windowsFolder = "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp";
-        StaticPageService staticPageService = new StaticPageService("C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\header.html", "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\footer.html");
+        StaticPageService staticPageService = 
+                new StaticPageService(
+                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\header.html", 
+                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\body_top.html", 
+                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\body_bottom.html",
+                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\footer.html"
+                );
         ProductService products = new ProductService("C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\productDB.txt");
         RequestDispatcher dispatcher = null;
         String id = request.getParameter("id");

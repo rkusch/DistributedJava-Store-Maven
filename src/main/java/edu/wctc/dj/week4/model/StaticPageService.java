@@ -64,12 +64,18 @@ public class StaticPageService {
         return theList;
     }
 
-    public StaticPageService(String headerFileName, String footerFileName) throws IOException {
+    public StaticPageService(String headerFileName, String body_TopFileName, String body_BottomFileName, String footerFileName) throws IOException {
         String header = fileAsString(headerFileName);
+        String body_top = fileAsString(body_TopFileName);
+        String body_bottom = fileAsString(body_BottomFileName);
         String footer = fileAsString(footerFileName);
-        StaticPage headerContent = new StaticPage("1", header);
-        StaticPage footerContent = new StaticPage("3", footer);
+        StaticPage headerContent = new StaticPage("header", header);
+        StaticPage body_TopContent = new StaticPage("body_Top", body_top);
+        StaticPage body_BottomContent = new StaticPage("body_Bottom", body_bottom);
+        StaticPage footerContent = new StaticPage("footer", footer);
         staticPages.add(headerContent);
+        staticPages.add(body_TopContent);
+        staticPages.add(body_BottomContent);
         staticPages.add(footerContent);
 
     }
