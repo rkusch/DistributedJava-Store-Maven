@@ -4,6 +4,7 @@
     Author     : ryan
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="edu.wctc.dj.week4.model.Product"%>
 <%@page import="edu.wctc.dj.week4.model.StaticPage"%>
 <%@page import="java.io.InputStream"%>
@@ -16,18 +17,6 @@
 
 
 <% List<StaticPage> pageList = (List<StaticPage>) request.getAttribute("pageList");%>
-<% List<Product> products = (List<Product>) request.getAttribute("allProducts");%>
-<% String currentProductID = (String) request.getAttribute("currentProductID");%>
-<%
-    Integer index = 0;
-    for (Product product : products) {
-        if (product.getId().equals(currentProductID)) {
-            break;
-        }
-        index++;
-    }
-    Product currentProduct = products.get(index);
-    %>
 <%=pageList.get(0).getContent()%>
 
 <section class="content content-2">
@@ -42,12 +31,12 @@
 
                             <div>
                                 <div class='p-one simpleCart_shelfItem'>
-                                    <a href='?product=<%=currentProduct.getId()%>'>
-                                        <img src='<%=currentProduct.getImageUrl()%>' height='600' width='480'>
+                                    <a href='?product=<c:out value="${currentProduct.id}"/>'>
+                                        <img src='<c:out value="${currentProduct.imageUrl}"/>' height='600' width='480'>
                                     </a>
-                                    <h4> <%=currentProduct.getName()%> </h4>
-                                    <p> $<%=currentProduct.getPrice()%><a class='item_add' href='?cart=<%=currentProduct.getId()%>'><i></i> <span class=' item_price'>  <i>Add To Cart </i></span></a> </p>
-                                    <p> <%=currentProduct.getDescription()%> </p>
+                                    <h4> <c:out value="${currentProduct.name}"/> </h4>
+                                    <p> $<c:out value="${currentProduct.price}"/><a class='item_add' href='?cart=<c:out value="${currentProduct.id}"/>'><i></i> <span class=' item_price'>  <i>Add To Cart </i></span></a> </p>
+                                    <p> <c:out value="${currentProduct.description}"/> </p>
                                 </div>
                             </div>
 

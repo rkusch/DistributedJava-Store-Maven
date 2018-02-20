@@ -78,10 +78,9 @@ public class MainController extends HttpServlet {
             //go to products.jsp
         } else if (product != null && !("all".equals(product))) {
             List<StaticPage> pageList = staticPageService.getAllStaticPages();
-            List<Product> allProducts = products.getAllProducts();
+            Product currentProduct = products.validateProduct(product);
             request.setAttribute("pageList", pageList);
-            request.setAttribute("allProducts", allProducts);
-            request.setAttribute("currentProductID", product);
+            request.setAttribute("currentProduct", currentProduct);
             dispatcher = request.getRequestDispatcher("/productDetails.jsp");
             //go to productDetails.jsp
         }
@@ -94,10 +93,9 @@ public class MainController extends HttpServlet {
             
         } else if (cart != null) {
             List<StaticPage> pageList = staticPageService.getAllStaticPages();
-            List<Product> allProducts = products.getAllProducts();
+            Product currentProduct = products.validateProduct(cart);
             request.setAttribute("pageList", pageList);
-            request.setAttribute("allProducts", allProducts);
-            request.setAttribute("addedToCart", cart);
+            request.setAttribute("addedToCart", currentProduct);
             dispatcher = request.getRequestDispatcher("/cart.jsp");
             
         } 
