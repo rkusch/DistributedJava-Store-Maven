@@ -58,16 +58,16 @@ public class MainController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            String macFolder = "/Users/ryan/OneDrive WCTC/OneDrive - Waukesha County Technical College/Distributed Java/NamesApp4 -Store/src/main/webapp";
-        String windowsFolder = "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp";
+            String macFolder = "/Users/ryan/OneDrive WCTC/OneDrive - Waukesha County Technical College/Distributed Java/NamesApp4 -Store/src/main/webapp/WEB-INF";
+        String windowsFolder = "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\WEB-INF";
         StaticPageService staticPageService = 
                 new StaticPageService(
-                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\header.html", 
-                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\body_top.html", 
-                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\body_bottom.html",
-                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\footer.html"
+                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\WEB-INF\\header.html", 
+                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\WEB-INF\\body_top.html", 
+                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\WEB-INF\\body_bottom.html",
+                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\WEB-INF\\footer.html"
                 );
-        ProductService products = new ProductService("C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\productDB.txt");
+        ProductService products = new ProductService("C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\WEB-INF\\productDB.txt");
         RequestDispatcher dispatcher = null;
         String id = request.getParameter("id");
         String product = request.getParameter("product");
@@ -80,14 +80,14 @@ public class MainController extends HttpServlet {
             List<Product> allProducts = products.getAllProducts();
             request.setAttribute("pageList", pageList);
             request.setAttribute("allProducts", allProducts);
-            dispatcher = request.getRequestDispatcher("/products.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/products.jsp");
             //go to products.jsp
         } else if (product != null && !("all".equals(product))) {
             List<StaticPage> pageList = staticPageService.getAllStaticPages();
             Product currentProduct = products.validateProduct(product);
             request.setAttribute("pageList", pageList);
             request.setAttribute("currentProduct", currentProduct);
-            dispatcher = request.getRequestDispatcher("/productDetails.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/productDetails.jsp");
             //go to productDetails.jsp
         }
         
@@ -95,27 +95,27 @@ public class MainController extends HttpServlet {
             List<StaticPage> pageList = staticPageService.getAllStaticPages();
             request.setAttribute("pageList", pageList);
             request.setAttribute("addedToCart", "noItems");
-            dispatcher = request.getRequestDispatcher("/cart.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/cart.jsp");
             
         } else if (cart != null) {
             List<StaticPage> pageList = staticPageService.getAllStaticPages();
             Product currentProduct = products.validateProduct(cart);
             request.setAttribute("pageList", pageList);
             request.setAttribute("addedToCart", currentProduct);
-            dispatcher = request.getRequestDispatcher("/cart.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/cart.jsp");
             
         } 
         
         else if (search != null) {
             List<StaticPage> pageList = staticPageService.findPages(search);
             request.setAttribute("pageList", pageList);
-            dispatcher = request.getRequestDispatcher("/pageDetail.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/pageDetail.jsp");
 
             //go to nameDetail.jsp
         } else {
             List<StaticPage> pageList = staticPageService.getAllStaticPages();
             request.setAttribute("pageList", pageList);
-            dispatcher = request.getRequestDispatcher("/home.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/home.jsp");
             //go to home.jsp
         }
             dispatcher.forward(request, response);
