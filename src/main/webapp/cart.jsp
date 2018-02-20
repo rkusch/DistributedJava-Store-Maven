@@ -20,7 +20,7 @@
 
 <%=pageList.get(0).getContent()%>
 <% boolean cartIsEmpty = false;
-    if (request.getAttribute("pageList") == "noItems") {
+    if ("noItems".equals(request.getAttribute("addedToCart"))) { 
         cartIsEmpty = true;
     } %>
 <section class="content content-2">
