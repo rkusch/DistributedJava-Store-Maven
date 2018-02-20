@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <c:redirect url="/MainController"/>
+    <c:redirect url="/AdventureWorks"/>
 
 </html>
  
