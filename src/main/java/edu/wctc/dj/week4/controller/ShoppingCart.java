@@ -1,10 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.wctc.dj.week4.controller;
-import edu.wctc.dj.week4.model.Name;
-import edu.wctc.dj.week4.model.NameService;
+
 import edu.wctc.dj.week4.model.Product;
 import edu.wctc.dj.week4.model.ProductService;
-import edu.wctc.dj.week4.model.StaticPage;
-import edu.wctc.dj.week4.model.StaticPageService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -18,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ryan
  */
-public class AdventureWorks extends HttpServlet {
+public class ShoppingCart extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +39,10 @@ public class AdventureWorks extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet NameController</title>");            
+            out.println("<title>Servlet ShoppingCart</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet NameController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ShoppingCart at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -55,7 +57,8 @@ public class AdventureWorks extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-            @Override
+    
+        @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             String macFolder = "/Users/ryan/OneDrive WCTC/OneDrive - Waukesha County Technical College/Distributed Java/NamesApp4 -Store/src/main/webapp/WEB-INF";
@@ -126,4 +129,3 @@ public class AdventureWorks extends HttpServlet {
     }// </editor-fold>
 
 }
-

@@ -16,7 +16,7 @@
 
 
 <% List<StaticPage> pageList = (List<StaticPage>) request.getAttribute("pageList");%>
-<%=pageList.get(0).getContent()%>
+<jsp:include page="/WEB-INF/header.html" />
 
 <header>
     <div class="header-content">
@@ -106,6 +106,6 @@
     </div>
 </div>
 
-<%=pageList.get(3).getContent()%>
+<jsp:include page="/WEB-INF/footer.html" />
 
 

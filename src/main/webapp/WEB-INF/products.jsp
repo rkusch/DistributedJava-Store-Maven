@@ -18,8 +18,8 @@
 
 <% List<StaticPage> pageList = (List<StaticPage>) request.getAttribute("pageList");%>
 <% List<Product> products = (List<Product>) request.getAttribute("allProducts");%>
-<%=pageList.get(0).getContent()%>
-<%=pageList.get(1).getContent()%>
+<jsp:include page="/WEB-INF/header.html" />
+<jsp:include page="/WEB-INF/body_top.html" />
 
 
 <!--start-product-->
@@ -68,8 +68,7 @@
     </c:forEach>
 
 </div>
-<%=pageList.get(2).getContent()%>
-<%=pageList.get(3).getContent()%>
-
+<jsp:include page="/WEB-INF/body_bottom.html" />
+<jsp:include page="/WEB-INF/footer.html" />
 
 

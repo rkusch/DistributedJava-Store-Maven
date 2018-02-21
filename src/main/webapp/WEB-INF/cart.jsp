@@ -23,8 +23,8 @@
         cartIsEmpty = true;
     }%>
 
-<%=pageList.get(0).getContent()%>
-<%=pageList.get(1).getContent()%>
+<jsp:include page="/WEB-INF/header.html" />
+<jsp:include page="/WEB-INF/body_top.html" />
 
 
 
@@ -47,8 +47,8 @@
     <%}%>
 </div>
 
-<%=pageList.get(2).getContent()%>
-<%=pageList.get(3).getContent()%>
+<jsp:include page="/WEB-INF/body_bottom.html" />
+<jsp:include page="/WEB-INF/footer.html" />
 
 
 
