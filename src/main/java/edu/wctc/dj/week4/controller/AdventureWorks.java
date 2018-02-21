@@ -62,12 +62,12 @@ public class AdventureWorks extends HttpServlet {
         String windowsFolder = "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\WEB-INF";
         StaticPageService staticPageService = 
                 new StaticPageService(
-                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\WEB-INF\\header.html", 
-                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\WEB-INF\\body_top.html", 
-                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\WEB-INF\\body_bottom.html",
-                "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\WEB-INF\\footer.html"
+                "/Users/ryan/OneDrive WCTC/OneDrive - Waukesha County Technical College/Distributed Java/NamesApp4 -Store/src/main/webapp/WEB-INF/header.html", 
+                "/Users/ryan/OneDrive WCTC/OneDrive - Waukesha County Technical College/Distributed Java/NamesApp4 -Store/src/main/webapp/WEB-INF/body_top.html", 
+                "/Users/ryan/OneDrive WCTC/OneDrive - Waukesha County Technical College/Distributed Java/NamesApp4 -Store/src/main/webapp/WEB-INF/body_bottom.html",
+                "/Users/ryan/OneDrive WCTC/OneDrive - Waukesha County Technical College/Distributed Java/NamesApp4 -Store/src/main/webapp/WEB-INF/footer.html"
                 );
-        ProductService products = new ProductService("C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\WEB-INF\\productDB.txt");
+        ProductService products = new ProductService("/Users/ryan/OneDrive WCTC/OneDrive - Waukesha County Technical College/Distributed Java/NamesApp4 -Store/src/main/webapp/WEB-INF/productDB.txt");
         RequestDispatcher dispatcher = null;
         String id = request.getParameter("id");
         String product = request.getParameter("product");
@@ -103,14 +103,12 @@ public class AdventureWorks extends HttpServlet {
             request.setAttribute("pageList", pageList);
             request.setAttribute("addedToCart", currentProduct);
             dispatcher = request.getRequestDispatcher("/WEB-INF/cart.jsp");
-            
         } 
         
         else if (search != null) {
             List<StaticPage> pageList = staticPageService.findPages(search);
             request.setAttribute("pageList", pageList);
             dispatcher = request.getRequestDispatcher("/WEB-INF/pageDetail.jsp");
-
             //go to nameDetail.jsp
         } else {
             List<StaticPage> pageList = staticPageService.getAllStaticPages();

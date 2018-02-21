@@ -28,30 +28,7 @@ public class ProductService {
 
     private List<Product> products = new ArrayList<Product>();
 
-//    private List<Product> convertProductDbToProducts(String filename) throws FileNotFoundException, IOException {
-//        InputStream is = new FileInputStream(filename);
-//        BufferedReader buf = new BufferedReader(new InputStreamReader(is));
-//        String line = buf.readLine();
-////        StringBuilder sb = new StringBuilder();
-//        List<Product> allProductsFromFile = new ArrayList<Product>();
-//
-//        while (line != null) {
-////            sb.append(line).append("\n");
-////            line = buf.readLine();
-//                
-//                String[] productData = line.split("-");
-//                String id = productData[0];
-//                String name = productData[1];
-//                Double price = Double.parseDouble(productData[2]);
-//                String description = productData[3];
-//                String imageUrl = productData[4];
-//                Product currentProduct = new Product(id,name,price,description,imageUrl);
-//                allProductsFromFile.add(currentProduct);
-//
-//        }
-//        return allProductsFromFile;
-//
-//    }
+
     public Product getID(String id) {
         Product theProduct = null;
         for (Product product : products) {
