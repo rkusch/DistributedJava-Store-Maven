@@ -61,9 +61,9 @@ public class ShoppingCart extends HttpServlet {
         @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            String macFolder = "/Users/ryan/OneDrive WCTC/OneDrive - Waukesha County Technical College/Distributed Java/NamesApp4 -Store/src/main/webapp/WEB-INF";
-        String windowsFolder = "C:\\Users\\Ryan\\OneDrive - Waukesha County Technical College\\Distributed Java\\NamesApp4 -Store\\src\\main\\webapp\\WEB-INF";
-   ProductService products = new ProductService("/Users/ryan/OneDrive WCTC/OneDrive - Waukesha County Technical College/Distributed Java/NamesApp4 -Store/src/main/webapp/WEB-INF/productDB.txt");
+
+        ProductService products = new ProductService();
+
         RequestDispatcher dispatcher = null;
         String id = request.getParameter("id");
         String product = request.getParameter("product");
