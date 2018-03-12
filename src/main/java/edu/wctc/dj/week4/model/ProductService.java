@@ -77,26 +77,23 @@ public class ProductService {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public final void setProducts(List<Product> products) {
         this.products = products;
     }
 
-    public ProductService(String productDatabaseFilename) throws IOException {
-        List<Product> allProducts = processDB(productDatabaseFilename);
+    public ProductService() throws IOException {
+        List<Product> allProducts = processDB();
         setProducts(allProducts);
-
     }
 
-    private List<Product> processDB(String filename) throws FileNotFoundException, IOException {
-        List<Product> allProductsFromFile = new ArrayList<Product>();
+    private List<Product> processDB() throws FileNotFoundException, IOException {
+        List<Product> allProductsFromFile = new ArrayList<>();
 
-//        File dataFile = new File("/web/" + filename + ".txt");
-        File dataFile = new File(filename);
-        BufferedReader br = null;
-        // check if file exists, and if so, loop through and read each line of text
+        InputStream productStream =
+		ProductService.class.getClassLoader().getResourceAsStream("productDB.txt");
 
-        FileInputStream fstream = new FileInputStream(dataFile);
-        br = new BufferedReader(new InputStreamReader(fstream));
+        BufferedReader br =
+		new BufferedReader(new InputStreamReader(productStream));
 
         String line;
 
